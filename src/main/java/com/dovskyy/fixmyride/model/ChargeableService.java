@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "services")
-public class Service {
+public class ChargeableService {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +18,6 @@ public class Service {
     private String description;
     private double price;
 
-    public Service() {
+    public ChargeableService() {
     }
 }

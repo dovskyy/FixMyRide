@@ -1,14 +1,11 @@
 package com.dovskyy.fixmyride.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Table(name = "repairs")
 public class Repair {
 
     @Id
@@ -27,7 +24,7 @@ public class Repair {
             joinColumns = @JoinColumn(name = "repair_id"),
             inverseJoinColumns = @JoinColumn(name = "service_id" )
     )
-    private List<Service> services;
+    private List<ChargeableService> chargeableServices;
 
     @ManyToMany
     @JoinTable(
