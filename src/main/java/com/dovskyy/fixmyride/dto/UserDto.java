@@ -11,6 +11,9 @@ import java.io.Serializable;
  */
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class UserDto implements Serializable {
     private Long id;
     private String firstName;

@@ -1,8 +1,7 @@
 package com.dovskyy.fixmyride.dto;
 
 import com.dovskyy.fixmyride.model.Bill;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -12,8 +11,15 @@ import java.time.LocalDate;
  */
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class BillDto implements Serializable {
     private Long id;
     private double totalAmount;
     private LocalDate date;
+    private CustomerDto customer;
+    private VehiclePartDto vehiclePart;
+    private VehiclePartManufacturerDto vehiclePartManufacturer;
+    private VehicleManufacturerDto vehicleManufacturer;
 }

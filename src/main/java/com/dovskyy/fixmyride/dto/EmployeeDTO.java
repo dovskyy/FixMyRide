@@ -1,10 +1,12 @@
 package com.dovskyy.fixmyride.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class EmployeeDTO {
 
     private Long id;
@@ -14,15 +16,4 @@ public class EmployeeDTO {
     private String phoneNumber;
     private String pesel;
 
-    public EmployeeDTO() {
-    }
-
-    public EmployeeDTO(Long id, String firstName, String lastName, String email, String phoneNumber, String pesel) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.pesel = pesel;
-    }
 }

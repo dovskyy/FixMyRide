@@ -1,7 +1,6 @@
 package com.dovskyy.fixmyride.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -10,6 +9,9 @@ import java.io.Serializable;
  */
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class VehicleManufacturerDto implements Serializable {
     private Long id;
     private String name;

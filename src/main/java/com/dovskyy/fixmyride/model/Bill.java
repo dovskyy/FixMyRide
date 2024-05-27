@@ -19,6 +19,7 @@ public class Bill {
     private double totalAmount;
     private LocalDate date;
 
+
     public Bill() {
     }
 }
