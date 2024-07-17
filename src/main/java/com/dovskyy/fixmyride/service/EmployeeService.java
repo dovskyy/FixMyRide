@@ -25,8 +25,13 @@ public class EmployeeService {
         if(employee.isPresent()) {
             return employeeMapper.toDTO(employee.get());
         } else {
-            throw new RuntimeException("Employee not found");
+            throw new RuntimeException("Employee not found (id = " + id + ")");
         }
+    }
+
+    public List<EmployeeDTO> getAll() {
+        List<Employee> employees = employeeRepository.findAll();
+        return employeeMapper.toDTO(employees);
     }
 
     public EmployeeDTO createEmployee(EmployeeDTO employeeDTO) {
@@ -36,5 +41,17 @@ public class EmployeeService {
 
     public List<EmployeeDTO> getAllEmployees() {
         return employeeMapper.toDTO(employeeRepository.findAll());
+    }
+
+    public EmployeeDTO updateEmployee(Long id, EmployeeDTO employeeDTO) {
+        Optional<Employee> employeeOptional = employeeRepository.findById(id);
+        if(employeeOptional.isPresent()) {
+            Employee employee = employeeOptional.get();
+            employeeMapper.updateEmployeeFromDTO(employeeDTO, employee);
+            employee.setId(id); // Ensure the ID is set correctly
+            return employeeMapper.toDTO(employeeRepository.save(employee));
+        } else {
+            throw new RuntimeException("Employee not found (id = " + id + ")");
+        }
     }
 }

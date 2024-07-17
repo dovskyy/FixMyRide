@@ -26,7 +26,14 @@ public class EmployeeController {
 
     @GetMapping
     public List<EmployeeDTO> getAllEmployees() {
-        return employeeService.getAllEmployees();
+        List<EmployeeDTO> employees = employeeService.getAll();
+        return employees;
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity updateEmployee(@PathVariable Long id, @RequestBody EmployeeDTO employeeDTO) {
+        EmployeeDTO updatedEmployee = employeeService.updateEmployee(id, employeeDTO);
+        return ResponseEntity.ok(updatedEmployee);
     }
 
     @PostMapping
